@@ -1,0 +1,22 @@
+{% extends "korisnici/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    
+    <h4 class="child" id=naslovna>E-voćarski dnevnik</h4>
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Registruj se!</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-dark" type="submit">Napravi nalog</button>
+            </div>
+        </form>
+        <div>
+            <small class="text">Ukoliko imate nalog, prijavite se<a href="/prijava"> ovdje!</a></small>
+            <small class="text">Za povratak na naslovnu stranicu, kliknite<a href="/"> ovdje!</a></small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,7 @@
+{% extends "korisnici/base.html" %}
+{% block content %}
+    <h2>Uspješno ste se odjavili</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">Prijavite se <a class="ml-2" href="{% url 'login'%}">ovdje</a> ili idite na početnu stranicu <a href="{% url 'korisnici-home'%}">klikom ovdje!</a></small>
+    </div>
+{% endblock content %}

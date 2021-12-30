@@ -1,0 +1,61 @@
+{% extends "korisnici/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h3>Informacije za korisnika: {{user.username}} </h3>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Korisnik</th>
+        <th scope="col">Godina</th>
+        <th scope="col">Parcela</th>
+        <th scope="col">Vrsta kulture</th>
+        <th scope="col">Sorta</th>
+        <th scope="col">Zimska rezidba</th>
+        <th scope="col">Termin zimske rezidbe</th>
+        <th scope="col">Ljetna rezidba</th>
+        <th scope="col">Termin ljetne rezidbe</th>
+        <th scope="col">Zakidanje izdanaka</th>
+        <th scope="col">Termin zakidanja izdanaka</th>
+
+
+      </tr>
+    </thead>
+    {% for analiza in analize %}
+
+        <tbody>
+            <tr>
+            <td> {{ analiza.korisnik }}</td>
+            <td> {{ analiza.godina }}</td>
+            <td> {{ analiza.parcela }}</td>
+            <td> {{ analiza.vrsta_kulture }}</td>
+            <td> {{ analiza.sorta }}</td>
+            <td> {{ analiza.zimska_rezidba }}</td>
+            <td> {{ analiza.termin_zimske_rezidbe }}</td>
+            <td> {{ analiza.ljetna_rezidba }}</td>
+            <td> {{ analiza.termin_ljetne_rezidbe }}</td>
+            <td> {{ analiza.zakidanje_izdanaka }}</td>
+            <td> {{ analiza.termin_zakidanja_izdanaka }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </table>
+    
+    <div class="content-section">
+      <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Unesi podatke:
+              {{ form.as_ul }}
+              </legend>
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-dark" type="submit">Pošalji rezultate</button>
+          </div>
+      </form>
+      
+  </div>
+
+{% endblock content %}

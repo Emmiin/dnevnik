@@ -1,0 +1,54 @@
+{% extends "korisnici/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h3>Informacije za korisnika: {{user.username}} </h3>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Korisnik</th>
+        <th scope="col">Godina</th>
+        <th scope="col">Parcela</th>
+        <th scope="col">Datum primjene</th>
+        <th scope="col">Naziv sredstva</th>
+        <th scope="col">Količina vode l/ha</th>
+        <th scope="col">Koncentracija (%)</th>
+        <th scope="col">Svrha primjene</th>
+
+      </tr>
+    </thead>
+    {% for analiza in analize %}
+
+        <tbody>
+            <tr>
+            <td> {{ analiza.korisnik }}</td>
+            <td> {{ analiza.godina }}</td>
+            <td> {{ analiza.parcela }}</td>
+            <td> {{ analiza.datum }}</td>
+            <td> {{ analiza.naziv }}</td>
+            <td> {{ analiza.količina_vode }}</td>
+            <td> {{ analiza.koncentracija }}</td>
+            <td> {{ analiza.svrha_primjene }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </table>
+    
+    <div class="content-section">
+      <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Unesi podatke:
+              {{ form.as_ul }}
+              </legend>
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-dark" type="submit">Pošalji rezultate</button>
+          </div>
+      </form>
+      
+  </div>
+
+{% endblock content %}

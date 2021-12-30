@@ -1,0 +1,51 @@
+{% extends "korisnici/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h3>Informacije za korisnika: {{user.username}} </h3>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Korisnik</th>
+        <th scope="col">Godina</th>
+        <th scope="col">Proizvođač/tip aparata</th>
+        <th scope="col">Godina proizvodnje</th>
+        <th scope="col">Kontrolu obavio</th>
+        <th scope="col">Datum kontrole</th>
+        <th scope="col">Primjedba</th>
+    </tr>
+    </thead>
+    {% for analiza in analize %}
+
+        <tbody>
+            <tr>
+            <td> {{ analiza.korisnik }}</td>
+            <td> {{ analiza.godina }}</td>
+            <td> {{ analiza.aparat }}</td>
+            <td> {{ analiza.godište }}</td>
+            <td> {{ analiza.kontrolu_obavio }}</td>
+            <td> {{ analiza.datum_kontrole }}</td>
+            <td> {{ analiza.primjedba }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </table>
+    
+    <div class="content-section">
+      <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Unesi podatke:
+              {{ form.as_ul }}
+              </legend>
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-dark" type="submit">Pošalji rezultate</button>
+          </div>
+      </form>
+      
+  </div>
+
+{% endblock content %}

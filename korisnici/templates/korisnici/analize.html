@@ -1,0 +1,60 @@
+{% extends "korisnici/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h3>Informacije za korisnika: {{user.username}} </h3>
+<div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Korisnik</th>
+        <th scope="col">Kod analize</th>
+        <th scope="col">Datum analize</th>
+        <th scope="col">Parcela</th>
+        <th scope="col">pH (M KCL) uzorka (%)</th>
+        <th scope="col">pH (H H2O) uzorka (%)</th>
+        <th scope="col">Postotak humusa u uzorku (%)</th>
+        <th scope="col">Postotak CaCO3 u uzorku (%)</th>
+        <th scope="col">Postotak azota u uzorku (%)</th>
+        <th scope="col">Postotak fosfora u uzorku (%)</th>
+        <th scope="col">Postotak kalija u uzorku (%)</th>
+
+      </tr>
+    </thead>
+    {% for analiza in analize %}
+
+        <tbody>
+            <tr>
+            <td> {{ analiza.korisnik }}</td>
+            <td> {{ analiza.kod_analize }}</td>
+            <td> {{ analiza.datum_analize }}</td>
+            <td> {{ analiza.parcela }}</td>
+            <td> {{ analiza.pH_M_KCL }}</td>
+            <td> {{ analiza.pH_H_H2O }}</td>
+            <td> {{ analiza.Humus_procent }}</td>
+            <td> {{ analiza.CaCO3_procent }}</td>
+            <td> {{ analiza.Azot_procent }}</td>
+            <td> {{ analiza.Fosfor_procent }}</td>
+            <td> {{ analiza.Kalij_procent }}</td>
+            </tr>
+        
+        </tbody>
+        {% endfor %}
+    </table>
+    
+    <div class="content-section">
+      <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Unesi rezultate nove analize:
+              {{ form.as_ul }}
+              </legend>
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-dark" type="submit">Pošalji rezultate</button>
+          </div>
+      </form>
+      
+  </div>
+</div>
+{% endblock content %}

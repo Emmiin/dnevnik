@@ -1,0 +1,48 @@
+{% extends "korisnici/base.html" %}
+{% block content %}
+<div class="sidenav">
+	<a href="#naslovna">Naslovna</a>
+	<a href="#odnevniku">Šta je e-dnevnik?</a>
+	<a href="#prednosti">Zašto e-dnevnik?</a>
+	<a href="#kontakt">Registracija, kontakt i prijava</a>
+  </div>
+  
+<div class="container">
+	<div class="dvica">
+		<h2 class="child" id=naslovna>E-voćarski dnevnik</h2>
+		<p>Dobrodošli na stranicu elektronskog voćarskog dnevnika, alata modernog voćara!</p>
+		<a class="dugme1" href="#odnevniku">Šta je to elektronski voćarski dnevnik?</a>
+	</div>
+
+	
+	<div class="dvica">
+		<h4 class="child mb-5"id="odnevniku">Voćarski dnevnik je alat za elektronsku vođenju evidencije o agrotehničkim mjerama provedenim u zasadima.</h4>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<a class="dugme2" href="#prednosti">Zašto elektronski dnevnik, a ne dnevnik na papiru?</a>
+	</div>
+	<div class="dvica"  id="prednosti">
+		<h4 class="child mb-5">Zato što sa elektronskim dnevnikom uvijek možete pristupiti informacijama, uvijek možete unijeti nove podatke, te će Vaši podaci biti sigurni!</h4>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<p>Tekst ili slika</p>
+		<a class="dugme3" href="#kontakt">Kako početi koristiti elektronski dnevnik?</a>
+
+	</div>
+	<div class="dvica"  id="kontakt">
+
+		<h4 class="child mb-5">Jednostavno je, registrujte se <a href="/registracija"> ovdje</a>!</h4>
+		<p class="pb-5">Ukoliko ste registrovani, prijavite se <a href="/prijava"> ovdje</a>!</p>
+		<p class="pt-5">Kontaktirati nas možete na</p>
+		<p>email: info@ednevnik.ba</p>
+	</div>
+</div>
+	
+{% endblock content %}
