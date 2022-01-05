@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-hh=ox@s6qfsh8v3)ntgl^c0^vh80j$0d7gz7=o#y+c%f$iy)hp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    https://dnevnikk.herokuapp.com/
+]
 
 
 # Application definition
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    whitenoise.middleware.WhiteNoiseMiddleware
 ]
 
 ROOT_URLCONF = 'dnevnik_2.urls'
