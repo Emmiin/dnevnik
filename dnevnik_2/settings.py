@@ -136,3 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL="korisnici-home"
 LOGIN_URL="login"
+
+import django_heroku
+django_heroku.settings(locals())
